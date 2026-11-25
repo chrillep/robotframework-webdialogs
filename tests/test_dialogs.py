@@ -1,10 +1,20 @@
 import unittest
+from unittest.mock import patch
 
+from WebDialogs.client.backend_controller import WEBDIALOGS_BACKEND_URL
 from WebDialogs.server.app import app
+from WebDialogs.server.run import WEBDIALOGS_PORT, run_flask
 from WebDialogs.server.services import dialog_manager
 
 
 class DialogCompatibilityTests(unittest.TestCase):
+    def test_default_port_is_consistent(self):
+        self.assertEqual(WEBDIALOGS_PORT, 5001)
+        self.assertEqual(WEBDIALOGS_BACKEND_URL, "http://localhost:5001")
+        with patch("WebDialogs.server.run.app.run") as run:
+            run_flask()
+        run.assert_called_once_with(port=WEBDIALOGS_PORT, debug=False, use_reloader=False)
+
     def setUp(self):
         app.config["TESTING"] = True
         self.client = app.test_client()

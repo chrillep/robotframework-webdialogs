@@ -32,7 +32,7 @@ Pause Execution
 The test will pause and open a dialog in the browser.
 To view it, open:
 
-http://localhost:5000
+http://localhost:5001
 
 ## Examples
 

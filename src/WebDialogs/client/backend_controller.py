@@ -4,7 +4,7 @@ from pathlib import Path
 import requests
 from robot.api import logger
 
-from ..server.run import start_flask_server
+from ..server.run import WEBDIALOGS_PORT, start_flask_server
 
 
 def float_range(start, stop, step):
@@ -13,7 +13,7 @@ def float_range(start, stop, step):
         start += step
 
 
-WEBDIALOGS_BACKEND_URL = "http://localhost:5000"
+WEBDIALOGS_BACKEND_URL = f"http://localhost:{WEBDIALOGS_PORT}"
 WEBDIALOGS_PATH = Path(__file__).parent
 WEBDIALOGS_SYMLINK_TEMPLATES = WEBDIALOGS_PATH.joinpath("..", "server", "templates", "dialogs", "custom")
 WEBDIALOGS_SYMLINK_STATIC = WEBDIALOGS_PATH.joinpath("..", "server", "static", "custom")

@@ -2,6 +2,7 @@
 
 ## Unreleased
 - Remove the Python upper version limit to allow installation on Python 3.14.
+- Change the default web server port from 5000 to 5001.
 
 ## 0.2.0
 - [Feature] Add optional parameter 'data' to execute_custom_step keyword by @osedlbauer

@@ -2,9 +2,11 @@ import threading
 
 from .app import app
 
+WEBDIALOGS_PORT = 5001
+
 
 def run_flask():
-    app.run(port=5000, debug=False, use_reloader=False)
+    app.run(port=WEBDIALOGS_PORT, debug=False, use_reloader=False)
 
 
 def start_flask_server():
@@ -13,4 +15,4 @@ def start_flask_server():
 
 
 if __name__ == "__main__":
-    app.run("0.0.0.0", 5000, debug=True)
+    app.run("0.0.0.0", WEBDIALOGS_PORT, debug=True)
